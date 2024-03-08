@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Rock Paper Scissors</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 50px;
+    }
+
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<h1>Rock Paper Scissors</h1>
+<p>Choose: <button onclick="play('rock')">Rock</button> <button onclick="play('paper')">Paper</button> <button onclick="play('scissors')">Scissors</button></p>
+<div id="result"></div>
+<script>
+    function computerPlay() {
+        const choices = ['rock', 'paper', 'scissors'];
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+    }
+
+    function play(playerSelection) {
+        const computerSelection = computerPlay();
+        let result;
+        if (playerSelection === computerSelection) {
+            result = "It's a tie!";
+        } else if (
+            (playerSelection === 'rock' && computerSelection === 'scissors') ||
+            (playerSelection === 'paper' && computerSelection === 'rock') ||
+            (playerSelection === 'scissors' && computerSelection === 'paper')
+        ) {
+            result = `You win! ${playerSelection} beats ${computerSelection}.`;
+        } else {
+            result = `You lose! ${computerSelection} beats ${playerSelection}.`;
+        }
+        document.getElementById('result').innerText = result;
+    }
+</script>
+</body>
+</html>

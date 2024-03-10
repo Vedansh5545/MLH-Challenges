@@ -8,7 +8,10 @@ function createCardElement(index) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.index = index;
-    card.textContent = '🎴';
+    card.innerHTML = `
+        <div class="front">${cards[index]}</div>
+        <div class="back"></div>
+    `;
     card.addEventListener('click', flipCard);
     return card;
 }
@@ -23,7 +26,7 @@ function renderCards() {
 }
 
 function checkForMatch() {
-    if (firstCard.textContent === secondCard.textContent) {
+    if (firstCard.innerHTML === secondCard.innerHTML) {
         disableCards();
     } else {
         unflipCards();

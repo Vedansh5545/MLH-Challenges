@@ -1,6 +1,16 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #332b1a; /* Coffee brown background color */
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Text color */
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 36px;
+    color: #ff7f00; /* Orange heading color */
 }
 
 .grid-container {
@@ -8,19 +18,46 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     margin-top: 20px;
+    padding: 20px;
 }
 
 .card {
     height: 100px;
-    background-color: #f0f0f0;
+    background-color: #e6d4b3; /* Light coffee brown card color */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s, background-color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: transparent;
+    border: 3px solid #ff7f00; /* Orange border */
 }
 
 .card.flipped {
-    background-color: #fff;
+    border: 3px solid #ff7f00; /* Orange border */
+    background-color: #332b1a; /* Coffee brown background color */
+    color: #fff;
+}
+
+.grid-container:hover .card:not(.flipped) {
+    background-color: #c0ac8e; /* Dark coffee brown hover color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff7f00; /* Orange button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc6600; /* Darker orange color on hover */
 }
